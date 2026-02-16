@@ -3312,17 +3312,13 @@ impl<'c> Translation<'c> {
         type_id = self.variable_array_base_type(type_id);
 
         let ty = self.convert_type(type_id)?;
-       // let tys = vec![ty];
-       // let mut path = vec![mk().path_segment("core")];
+        // let tys = vec![ty];
+        // let mut path = vec![mk().path_segment("core")];
 
         match &*ty {
-            Type::Array(a) => {
-                        Ok(WithStmts::new_val(Box::new(a.len.clone())))
-
-            },
+            Type::Array(a) => Ok(WithStmts::new_val(Box::new(a.len.clone()))),
             _ => todo!(),
         }
-
 
         // if preferred {
         //     self.use_feature("core_intrinsics");
@@ -3462,7 +3458,8 @@ impl<'c> Translation<'c> {
                     },
                     UnTypeOp::AlignOf => self.compute_align_of_type(arg_ty.ctype, false)?,
                     UnTypeOp::PreferredAlignOf => self.compute_align_of_type(arg_ty.ctype, true)?,
-                    UnTypeOp::CountOf => self.compute_count_of_type(arg_ty.ctype)?,                };
+                    UnTypeOp::CountOf => self.compute_count_of_type(arg_ty.ctype)?,
+                };
 
                 Ok(result)
             }

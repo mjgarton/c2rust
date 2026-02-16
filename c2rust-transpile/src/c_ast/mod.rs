@@ -1848,7 +1848,7 @@ impl UnTypeOp {
             SizeOf => "sizeof",
             AlignOf => "alignof",
             PreferredAlignOf => "__alignof",
-            CountOf => "countof"
+            CountOf => "countof",
         }
     }
 }
