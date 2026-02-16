@@ -13,6 +13,18 @@ jobs:
           - runner: ubuntu-latest
             os: Linux
             arch: x86_64
+            clang-version: 21
+          - runner: ubuntu-latest
+            os: Linux
+            arch: x86_64
+            clang-version: 20
+          - runner: ubuntu-latest
+            os: Linux
+            arch: x86_64
+            clang-version: 19
+          - runner: ubuntu-latest
+            os: Linux
+            arch: x86_64
             clang-version: 18
           - runner: ubuntu-22.04
             os: Linux
@@ -67,8 +79,8 @@ jobs:
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: |
-            clang
-            clang-tools
+            clang-${{ matrix.clang-version }}
+            clang-tools-${{ matrix.clang-version }}
             cmake
             curl
             git
