@@ -13,6 +13,10 @@ jobs:
           - runner: ubuntu-latest
             os: Linux
             arch: x86_64
+            clang-version: 21
+          - runner: ubuntu-latest
+            os: Linux
+            arch: x86_64
             clang-version: 18
           - runner: ubuntu-22.04
             os: Linux
